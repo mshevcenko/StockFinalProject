@@ -1,0 +1,6 @@
+# Project exclude paths
+/client/target/
+/packet/target/
+/server/target/
+/stock-database/target/
+/stock-objects/target/

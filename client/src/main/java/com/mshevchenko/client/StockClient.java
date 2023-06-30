@@ -9,6 +9,8 @@ import com.mshevchenko.client.exceptions.UnavailableServerException;
 import com.mshevchenko.packet.Commands;
 import com.mshevchenko.packet.Packet;
 import com.mshevchenko.packet.Status;
+import com.mshevchenko.packet.exceptions.LostDataException;
+import com.mshevchenko.packet.exceptions.NotPacketException;
 import com.mshevchenko.stock_objects.Group;
 import com.mshevchenko.stock_objects.Pair;
 import com.mshevchenko.stock_objects.Product;
@@ -51,6 +53,10 @@ public class StockClient {
             connectToServer();
         }
         byte[] bytes = Packet.encryptPacket(packet);
+        /*for(byte b : bytes) {
+            System.out.print((int)b + " ");
+        }
+        System.out.println();*/
         try {
             this.out.write(bytes);
             this.packetNumber++;

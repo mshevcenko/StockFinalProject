@@ -42,7 +42,7 @@ public class CRC16Creator {
     public static short createCRC16(byte[] arr, int offset, int length){
         int crc = 0x0000;
         for (int i = offset; i < offset + length; i++) {
-            crc = (crc >>> 8) ^ table[(crc ^ table[i]) & 0xff];
+            crc = (crc >>> 8) ^ table[(crc ^ arr[i]) & 0xff];
         }
         return (short) crc;
     }
